@@ -1,0 +1,169 @@
+:root {
+    /* Variáveis globais para cores usadas no site */
+    --bg-light: rgba(255, 255, 255, 0.753); /* Cor de fundo clara */
+    --bg-dark: #161616;                    /* Cor de fundo escura */
+    --bg-dark-header: #1a1a1a;             /* Cor para header/footer no modo escuro */
+    --color-light: black;                  /* Cor de texto clara (preto) */
+    --color-dark: white;                  /* Cor de texto escura (branco) */
+    --bg-input: #333;                    /* Cor para botões/input escuros */
+}
+
+/* Estilo geral da página */
+body {
+    background-color: var(--bg-light); /* Usa a cor clara definida acima */
+    color: var(--color-light);          /* Cor do texto padrão */
+    font-size: 16px;                    /* Tamanho base da fonte */
+    padding-top: 80px;                  /* Espaço para o header fixo */
+    transition: 0.3s;                  /* Transição suave entre temas */
+}
+body.dark {
+    background-color: var(--bg-dark);  /* Cor de fundo quando escuro */
+    color: var(--color-dark);          /* Cor do texto quando escuro */
+}
+
+/* Header e Footer */
+header, footer {
+    padding: 10px;       /* Espaçamento interno para header e footer */
+    width: 100%;         /* Ambos ocupam toda a largura */
+}
+header {
+    position: fixed;     /* Header fixo no topo da tela */
+    top: 0;
+    left: 0;
+    background-color: var(--bg-light); /* Cor de fundo clara por padrão */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra suave */
+    z-index: 999;        /* Para que o header fique acima do conteúdo */
+}
+body.dark header,
+body.dark footer {
+    background-color: var(--bg-dark-header); /* Fundo escuro para header/footer */
+    color: var(--color-dark);                /* Texto branco no modo escuro */
+    box-shadow: 0 2px 5px rgba(255,255,255,0.1); /* Sombra clara quando escuro */
+}
+
+/* Conteúdo do Header (menu, logo etc.) */
+.headerContainer {
+    max-width: 1200px;  /* Limita a largura máxima do header */
+    margin: 0 auto;     /* Centraliza horizontalmente */
+    display: flex;      /* Flexbox para alinhar itens */
+    align-items: center;     /* Alinha verticalmente ao centro */
+    justify-content: space-between; /* Espaça logo e menu */
+}
+.menu ul {
+    list-style: none;   /* Remove as bolinhas da lista */
+    display: flex;      /* Exibe o menu na horizontal */
+    gap: 30px;          /* Espaço entre os links */
+    padding: 0;
+    margin: 0;
+}
+.menu a {
+    text-decoration: none;       /* Remove sublinhado */
+    color: var(--color-light);   /* Cor dos links no modo claro */
+    font-weight: bold;
+    font-size: 16px;
+}
+body.dark .menu a {
+    color: var(--color-dark);    /* Cor dos links no modo escuro */
+}
+
+/* Estilos para imagens lado a lado e centralizadas */
+.duasimg {
+    display: flex;      /* Coloca as imagens lado a lado */
+}
+.duasimg img {
+    width: 50vw;        /* Cada imagem ocupa 50% da tela */
+    height: auto;       /* Mantém proporção correta */
+    display: block;
+}
+.centerimg {
+    display: flex;
+    justify-content: center;  /* Centraliza a imagem horizontalmente */
+    align-items: center;      /* Centraliza a imagem verticalmente */
+    padding: 40px 10px;
+}
+.centerimg img {
+    max-width: 100%;    /* Não deixa a imagem ultrapassar o container */
+    height: auto;
+}
+
+/* Formulário de contato */
+#contato {
+    max-width: 400px;             /* Limita a largura do formulário */
+    margin: 40px auto;            /* Centraliza horizontalmente e dá espaçamento vertical */
+    padding: 20px;                /* Espaçamento interno */
+    border: 2px solid #333;       /* Borda escura */
+    border-radius: 12px;          /* Cantos arredondados */
+    box-sizing: border-box;       /* Inclui borda e padding na largura total */
+    font-family: Arial, sans-serif;
+}
+#contato form fieldset {
+    border: none;  /* Remove a borda padrão do fieldset */
+    padding: 0;
+    margin: 0;
+}
+#contato label,
+#contato input,
+#contato textarea {
+    display: block;     /* Cada elemento em uma linha separada */
+    width: 100%;        /* Cada elemento ocupa a largura toda */
+    margin-bottom: 12px;
+    border-radius: 8px; /* Bordas arredondadas */
+}
+#contato input[type="text"],
+#contato input[type="email"],
+#contato textarea {
+    border: 1px solid #aaa;    /* Borda clara */
+    padding: 8px;             /* Espaçamento interno */
+    box-sizing: border-box;
+}
+#contato input[type="submit"] {
+    background-color: var(--bg-input); /* Fundo escuro */
+    color: var(--color-dark);         /* Texto branco */
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease; /* Animação suave quando hover */
+}
+#contato input[type="submit"]:hover {
+    background-color: #555;    /* Muda cor quando o mouse passa por cima */
+}
+
+/* Área da seção home */
+#home {
+    scroll-margin-top: 100px; /* Espaço extra quando rolar até aqui (compensa o header fixo) */
+}
+
+/* Botões em geral */
+button {
+    background: none; /* Remove fundo padrão */
+    border: none;     /* Remove borda padrão */
+    cursor: pointer;  /* Ícone da mãozinha ao passar o mouse */
+}
+
+/* Rodapé */
+footer {
+    font-family: "WDXL Lubrifont SC", sans-serif;
+    font-style: normal;
+    text-align: center;          /* Centraliza o texto */
+    padding: 5px;
+    background-color: #f2f2f2;   /* Fundo claro para o footer no modo claro */
+    color: var(--color-light);   /* Cor do texto escura */
+}
+
+/* Sobre */
+main h1 {
+    text-align: center;
+}
+
+div h3 {
+    text-align: center;
+}
+
+#imgperfil img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 10px;
+}
